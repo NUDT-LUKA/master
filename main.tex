@@ -1,0 +1,39 @@
+% !Mode:: "TeX:UTF-8"
+
+% 参考：
+%	https://github.com/blackender/hunnuthesis
+%	https://github.com/leekunhwee/XJTU_Thesis_LaTeX_2021
+% 运行：firing.bat
+\documentclass[openany,twoside,fontset=none,UTF8]{ctexbook}
+\input{setup/package}
+\graphicspath{{figures/}} % 设定图片存放的根目录
+
+%====================================== Document =========================================
+\begin{document}
+\input{setup/format}
+
+%===================================== Cover and TOC =====================================
+\frontmatter
+\input{setup/cover}		% 封面
+\input{setup/abstract}	% 摘要
+\input{setup/content}	% 目录
+
+%======================================= Main Body =======================================
+\mainmatter
+\include{body/chapter_1}
+\include{body/chapter_2}
+\include{body/chapter_3}
+\include{body/chapter_4}
+\include{body/chapter_5}
+ 
+%======================================= Reference =======================================
+\backmatter
+\addcontentsline{toc}{chapter}{参考文献}
+\bibliography{bib/ref}
+
+%======================================= Appendix ========================================
+\include{appendix/acknowledgements} % 致谢
+\include{appendix/achievements}     % 成果
+\include{appendix/authorization}    % 声明
+
+\end{document} 

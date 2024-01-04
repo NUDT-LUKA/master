@@ -1,0 +1,222 @@
+% !Mode:: "TeX:UTF-8"
+
+% ======================================= Cover =========================================
+\newcommand{\logcolor}{red}                                             % 图标颜色, 只有 red 和 black
+\newcommand{\titlecn}{中文标题\\中文标题}     % 中文标题
+\newcommand{\titleen}{英文标题\\英文标题}          % 英文标题
+\newcommand{\titlehead}{页眉标题}      % 页眉标题
+\newcommand{\priormajor}{学科专业}                                       % 学科专业
+\newcommand{\authorname}{作者姓名}                                           % 作者姓名
+\newcommand{\supervisor}{导师姓名~导师职称}                                    % 导师
+\newcommand{\thesisid}{}                                                % 论文编号
+\newcommand{\clcnumber}{}                                               % 分类号
+\newcommand{\csecret}{公开}                                             % 密级
+\newcommand{\schoolcode}{10542}                                         % 学校代码
+\newcommand{\studentid}{学号}                                   % 学号
+\newcommand{\interestmajor}{研究方向}                                    % 研究方向
+\newcommand{\thesisdate}{二〇二三年六月}                                 % 论文日期
+
+\makeatletter
+%========================================= Font ==========================================
+\renewcommand\normalsize{
+    \@setfontsize\normalsize{12pt}{12pt}
+    \setlength\abovedisplayskip{8pt}
+    \setlength\abovedisplayshortskip{8pt}
+    \setlength\belowdisplayskip{\abovedisplayskip}
+    \setlength\belowdisplayshortskip{\abovedisplayshortskip}
+    \let\@listi\@listI
+}
+\def\defaultfont{\renewcommand{\baselinestretch}{1.5}\normalsize\selectfont}
+
+% 脚注字体为 5 号
+\renewcommand{\footnotesize}{\zihao{5} \fs}
+
+% 设置字间距，使每行37个字，若要减少每行字数（一般以34个），将0.56pt的值增加
+\renewcommand{\CJKglue}{\hskip 0.56pt plus 0.08\baselineskip}
+
+% 段落缩进: 2 个字符
+\setlength{\parindent}{2em}
+
+% 段落间距: 涉及目录
+\setlength{\parskip}{3pt plus1pt minus1pt} % 
+
+% 公式跨页设置，公式之前可以换页，公式出现在页面顶部
+\predisplaypenalty=0
+\allowdisplaybreaks[4]
+
+% 允许断页时给上一页底部留有一定空白，避免拉大标题和行距
+\raggedbottom
+
+%======================================== Header =========================================
+% 定义页眉和页脚
+\newcommand{\makeheadrule}{\rule[6pt]{\textwidth}{0.5mm} \\[-17.5pt]}
+\renewcommand{\headrule}{
+    {\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+     \makeheadrule}}
+\pagestyle{fancyplain}
+
+% 不要注销这一行，否则页眉会变成：“第1章1  绪论”样式
+\renewcommand{\chaptermark}[1]{\markboth{\chaptertitlename~~\ #1}{}}
+\fancyhf{}
+\fancyhead[CO]{\zihao{5} \song \titlehead} % 奇数页页眉
+\fancyhead[CE]{\zihao{5} \song 硕士学位论文}         % 偶数页页眉
+\fancyfoot[C]{\zihao{5} \song \thepage}             % 页码
+
+%=================================== TOC: 目录格式定义 ====================================
+\renewcommand\contentsname{目\quad 录}              % 目录名
+\setcounter{secnumdepth}{4}                         % 设置章节的编号深度
+\setcounter{tocdepth}{2}                            % 设置在 ToC 的显示的章节深度
+\dottedcontents{section}[38pt]{}{22pt}{0.3pc}
+\dottedcontents{subsection}[70pt]{}{32pt}{0.3pc}
+
+\titlecontents{chapter}[0em]{\vspace{0pt} \zihao{4} \hei}
+    {\thecontentslabel~~~ }{}
+    {\hspace{0.5em} \titlerule*{.} \contentspage}
+\titlecontents{section}[1em]{\vspace{0pt} \zihao{4} \song}
+    {\thecontentslabel ~~}{}
+    {\hspace{0.5em} \titlerule*{.} \contentspage}
+\titlecontents{subsection}[2em]{\vspace{0pt} \zihao{4} \song}
+    {\thecontentslabel~~}{}
+    {\hspace{0.5em} \titlerule*{.} \contentspage}
+
+%======================================= 标题设置 =========================================
+
+% 标题格式设置
+\ctexset{
+    % 一级标题用 3 号黑体居中, 空一行
+    chapter = {
+        format = {\linespread{1.0} \zihao{3} \hei \centering},
+        name = {第 , 章},
+        number = {\arabic{chapter}},
+        numberformat = \rmfamily,
+        aftername = \quad,
+        beforeskip = {7pt},
+        afterskip = {18pt},
+        pagestyle = plain
+    },
+    % 二级标题用小 3 号黑体
+    section = {
+        format = {\linespread{1.0} \zihao{-3} \hei \raggedright},
+        numberformat = \rmfamily,
+        aftername = \quad,
+        beforeskip = {24pt},
+        afterskip = {6pt},
+    },
+    % 三级标题用 4 号黑体
+    subsection = {
+        format = {\linespread{1.0} \zihao{4} \hei \raggedright},
+        numberformat = \rmfamily,
+        aftername = \quad,
+        beforeskip = {12pt},
+        afterskip = {6pt},
+    },
+    % 四级标题用 4 号楷体
+    subsubsection = {
+        format = {\linespread{1.0} \zihao{4} \kt \raggedright},
+        numberformat = \rmfamily,
+        aftername = \quad,
+        beforeskip = {12pt},
+        afterskip = {6pt},
+    }
+}
+
+% 附录、摘要放入目录
+\newcommand{\Chapter}[1]{
+    \phantomsection     % 章节不编号
+    \chapter{#1}
+    % \markboth{#1}{#1}
+}
+
+%===================================== 参考文献设置 =======================================
+% 参考文献格式
+\bibliographystyle{bib/gbt-7714-2015-numerical}
+\addtolength{\bibsep}{-0.8em}
+\newcommand{\upcite}[1]{{\setcitestyle{square,super}\citep{#1}}} % 文献上标
+
+%======================================= Theorem =========================================
+% 定理正文和标题字体
+\theoremstyle{plain}
+\theoremheaderfont{\hei\rmfamily}
+\theorembodyfont{\rmfamily}
+\theoremseparator{：}
+
+% 定理环境和上下文之间的距离
+\setlength{\theorempreskipamount}{8pt}
+\setlength{\theorempostskipamount}{8pt}
+
+% 定义新的定理环境
+\theoremsymbol{$\Diamond$} \newtheorem{definition}{\hskip 2em \hei 定义}[chapter]
+\theoremsymbol{$\blacklozenge$} \newtheorem{example}{\hskip 2em \hei 例}[chapter]
+\theoremsymbol{$\square$} \newtheorem{theorem}{\hskip 2em \hei 定理}[chapter]
+\theoremsymbol{$\blacksquare$} \newtheorem*{proof}{\hskip 2em \hei 证明}
+
+%========================================= FTE ===========================================
+% 图表公式的编号为1-1格式，子图编号为 (a) 的格式
+%\renewcommand{\figurename}{Figure}% 英文论文图标题以 Figure 开头
+%\renewcommand{\tablename}{Table}% 英文论文表标题以 Table 开头
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\renewcommand{\p@subfigure}{\thefigure~}
+\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+
+% 把 tabularx 宏包的列格式左对齐改成居中对齐
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% 定制浮动图形和表格标题样式
+\captionnamefont{\zihao{5}}
+\captiontitlefont{\zihao{5}}
+\captiondelim{~~}
+\hangcaption
+\renewcommand{\subcapsize}{\zihao{5}}
+\setlength{\abovecaptionskip}{0pt}
+\setlength{\belowcaptionskip}{0pt}
+
+% 关于公式的几个定义
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\Exp}{\mathrm{E}}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\seq}[2]{#1_1,#1_2,\cdots,#1_#2}
+\newcommand{\iprod}[2]{\langle #1,#2 \rangle}
+
+% 调整罗列环境的布局
+\setitemize{leftmargin=3em,itemsep=0em,partopsep=0em,parsep=0em,topsep=-0em}
+\setenumerate{leftmargin=3.2em,itemsep=0em,partopsep=0em,parsep=0em,topsep=0em}
+
+% 自定义项目列表标签及格式 \begin{publist} 列表项 \end{publist}
+\newcounter{pubctr} %自定义新计数器
+\newenvironment{publist}{\zihao{5}
+    \begin{list}{[\arabic{pubctr}]}{
+     \usecounter{pubctr}
+     \setlength{\leftmargin}{2em}        % 左边界
+     \setlength{\labelsep}{0.8em}        % 标号和列表项之间的距离,默认0.5em
+     \setlength{\parsep}{0ex}            % 段落间距
+     \setlength{\itemsep}{0ex}            % 标签间距
+    }}
+{\end{list}}%
+
+% 更改算法标题
+\renewcommand{\algorithmcfname}{算法}
+% \renewcommand{\algocf@captiontext}[1]{\zihao{4} \song#1}
+% \renewcommand\thealgocf{\csname the\algocf@within-\@arabic\c@algocf} % 算法编号
+\SetKwInput{KwIn}{输入}
+\SetKwInput{KwOut}{输出}
+\SetAlCapSty{textrm}
+\SetAlCapSkip{1ex}
+\makeatother
+
+% 更改代码标题
+\renewcommand{\lstlistingname}{代码}
+\renewcommand{\thelstlisting}{\arabic{chapter}-\arabic{lstlisting}}
+
+% 上角标形式的参考文献引用格式
+\newcommand{\citeup}[1]{\textsuperscript{\cite{#1}}}
+
+%======================================== Other ==========================================
+% 避免宏包 hyperref 和 arydshln 不兼容带来的目录链接失效的问题。
+\def\temp{\relax}
+\let\temp\addcontentsline
+\gdef\addcontentsline{\phantomsection\temp}
+\gdef\hitempty{}

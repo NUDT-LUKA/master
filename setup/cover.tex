@@ -1,0 +1,99 @@
+% !Mode:: "TeX:UTF-8" 
+
+\begin{titlepage}
+    % 中文封面
+    \begin{center}
+        \begin{figure*}[!ht]
+            \centering
+            \includegraphics[width=14.5cm]{cover/hunnu_log_\logcolor}
+        \end{figure*}
+        \par
+
+        \linespread{1.5}
+        {
+            \zihao{0} \hei
+            \begin{center}
+                硕士学位论文
+            \end{center}
+        }
+        
+        \vspace{1.5cm} % 两个空行
+        {
+            \zihao{2} \hei \begin{center} \titlecn \end{center}
+        }
+        
+        \vspace{1.5cm} % 两个空行
+        {
+            \zihao{3} \kt
+            \begin{center}
+                \begin{tabular}{cc} \renewcommand{\arraystretch}{1.5}
+                    \makebox[7em][s]{学科专业}      &  \uline{\makebox[7cm][c]{\priormajor}}\\
+                    \makebox[7em][s]{学位类型}      &  \uline{\makebox[7cm][c]{{$\Square$}科学学位~~{$\CheckedBox$}专业学位}}\\
+                    \makebox[7em][s]{研究生姓名}    &  \uline{\makebox[7cm][c]{\authorname}}\\
+                    \makebox[7em][s]{导师姓名、职称} &  \uline{\makebox[7cm][c]{\supervisor}}\\
+                    \makebox[7em][s]{论文编号}      &  \uline{\makebox[7cm][c]{}}
+                \end{tabular} \renewcommand{\arraystretch}{1}
+            \end{center}
+        }
+        
+        \vspace{1.5cm}
+        {
+            \zihao{4} \fs
+            \begin{center}
+                湖南师范大学学位评定委员会办公室\\
+                \thesisdate
+            \end{center}
+        }
+    \end{center}
+    \clearpage{\pagestyle{empty}\cleardoublepage}
+
+    %---------------------------------------------------------------------------------
+    % 英文封面
+    \newpage\thispagestyle{empty}
+    \begin{center}
+        \vspace*{1cm}
+        \linespread{1.25}
+        {
+            \zihao{-4} \hei
+            \begin{tabular}{l@{}c p{3cm} l@{}c} % @{}去除边框距离，更符合学校模板的下划线紧贴描述文字
+                \makebox[4em][s]{分类号}   & \uline{\makebox[3cm][c]{\clcnumber}}  &  &
+                密级                       & \uline{\makebox[3cm][c]{\csecret}}\\
+                \makebox[4em][s]{学校代码} & \uline{\makebox[3cm][c]{\schoolcode}} &  &
+                学号                       & \uline{\makebox[3cm][c]{\studentid}}
+            \end{tabular}
+        }
+        
+        \vspace{1cm}
+        {
+            \zihao{2} \hei
+            \begin{center}
+                \titlecn\\
+                \titleen
+            \end{center}
+        }
+        
+        \vspace{1.5cm}
+        {
+            \zihao{3} \kt
+            \begin{center} \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{ll}
+                    \makebox[9em][s]{研究生姓名}        &  \uline{\makebox[5cm][c]{\authorname}}\\
+                    \makebox[9em][s]{指导教师姓名、职称} &  \uline{\makebox[5cm][c]{\supervisor}}\\
+                    \makebox[9em][s]{学科专业}          &  \uline{\makebox[5cm][c]{\priormajor}}\\
+                    \makebox[9em][s]{研究方向}          &  \uline{\makebox[5cm][c]{\interestmajor}}
+                \end{tabular} \renewcommand{\arraystretch}{1}
+            \end{center}
+        }
+
+        \vspace{1.5cm}
+        {
+            \zihao{4} \fs
+            \begin{center}
+                湖南师范大学学位评定委员会办公室\\
+                \thesisdate
+            \end{center}
+        }
+        
+    \end{center}
+    \clearpage{\pagestyle{empty}\cleardoublepage}
+\end{titlepage}
