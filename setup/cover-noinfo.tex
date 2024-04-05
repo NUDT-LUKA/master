@@ -1,0 +1,42 @@
+% !Mode:: "TeX:UTF-8" 
+
+\begin{titlepage}
+    % 盲审封面 1:1 复刻
+    \begin{center}
+        \mbox{}
+        \vspace{5.4cm}
+        
+        {
+            \zihao{2} \hei
+            \begin{center}
+                \titlecn
+            \end{center}
+        }
+        
+        \vspace{2.3cm}
+        {
+            \zihao{3} \fs 
+            \renewcommand{\arraystretch}{1.5}
+            \begin{center}
+                \begin{tabular}{cc}
+                    \makebox[7em][s]{学科专业}      &  \uline{\zihao{-4} \makebox[8cm][c]{\priormajor}}\\
+                    % 这里一行由于楷体计算方式与宋体不同，导致自动居中有问题，需要手动调节
+                    % 实测，在六个字的情况下，注释掉 cover.tex 显示正常
+                    \makebox[7em][s]{学位类型}      &  \uline{\makebox[8cm][l]{\kt\hspace{1.36cm} 工学硕士学位}}\\
+                    \makebox[7em][s]{研究生姓名}    &   \uline{\makebox[8cm][c]{\authorname}}\\
+                    \makebox[7em][s]{导师姓名、职称} &  \uline{\makebox[8cm][c]{\supervisor}}\\
+                    \makebox[7em][s]{论文编号}      &  \uline{\makebox[8cm][c]{}}\\
+                  \end{tabular}
+            \end{center}
+        }
+        
+        \vspace{1.9cm}
+        {
+            \zihao{4} \fs
+            \begin{center}
+                \thesisdatenumerical
+            \end{center}
+        }
+    \end{center}
+    \clearpage{\pagestyle{empty}\cleardoublepage}
+\end{titlepage}
