@@ -101,6 +101,8 @@ H 为强制算法放在指定位置，行距不会被压缩。
 Foreach 可用于遍历已知集合, for 用于控制变量。
 
 \begin{algorithm}[htbp]
+    % 由于算法的行距不跟着全局设定走，所以需要在每个算法中单独设置，无论是 algothmic 还是 algorithm2e 都是这样
+    \setstretch{1.28}
     \caption{For 与 Foreach 示例}
     \label{alg:forAndForeach}
     \KwIn{决策表}
