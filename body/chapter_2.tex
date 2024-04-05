@@ -96,7 +96,9 @@
 \subsection{A2}
 算法描述使用 algorithm2e 宏包，效果如算法 \ref{alg:examDescription} 所示。
 
-\begin{algorithm}[H]
+\begin{algorithm}[htbp]
+    % 由于算法的行距不跟着全局设定走，所以需要在每个算法中单独设置，无论是 algothmic 还是 algorithm2e 都是这样
+    \setstretch{1.28}
     \caption{示例算法详细描述}
     \label{alg:examDescription}
     \KwIn{$\mbf{x}(k), \quad \mu, \quad \mbf{w}(0)$}
