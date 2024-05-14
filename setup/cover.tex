@@ -5,36 +5,44 @@
     \begin{center}
         \begin{figure*}[!ht]
             \centering
-            \includegraphics[width=14.5cm]{cover/hunnu_log_\logcolor}
+            \includegraphics[width=12cm]{cover/hunnu_log_\logcolor.png}
         \end{figure*}
         \par
 
         \linespread{1.5}
         {
-            \zihao{0} \hei
+            \zihao{0} \song \xeCJKsetup{CJKglue=\hskip 8pt plus 0.08\baselineskip}
             \begin{center}
-                硕士学位论文
+                % 此处应该宋体加粗，暂无法解决
+                {学术学位硕士论文}
             \end{center}
         }
-        
-        \vspace{1.5cm} % 两个空行
+
+        \vspace{1cm} % 两个空行
         {
             \zihao{2} \hei
             \begin{center}
-                \titlecn
+                \uline{\titlecn}
             \end{center}
         }
         
-        \vspace{1.5cm} % 两个空行
+        % \vspace{0.75cm} % 两个空行
         {
-            \zihao{3} \kt
+            \zihao{2} \hei
+            \begin{center}
+                \uline{\titleen}
+            \end{center}
+        }
+
+        \vspace{0.75cm} % 两个空行
+        {
+            \zihao{3} \song
             \begin{center}
                 \begin{tabular}{cc}
-                    \makebox[7em][s]{学科专业}      &  \uline{\makebox[7cm][c]{\priormajor}}\\
-                    \makebox[7em][s]{学位类型}      &  \uline{\makebox[7cm][c]{{$\CheckedBox$}科学学位~~{$\Square$}专业学位}}\\
+                    \makebox[7em][s]{一级学科名称}      &  \uline{\makebox[7cm][c]{\priormajor}}\\
+                    \makebox[7em][s]{\scalebox{0.68}[1]{二级学科/学科方向名称}}      &  \uline{\makebox[7cm][c]{智能科学与技术}}\\
                     \makebox[7em][s]{研究生姓名}    &  \uline{\makebox[7cm][c]{\authorname}}\\
                     \makebox[7em][s]{导师姓名、职称} &  \uline{\makebox[7cm][c]{\supervisor}}\\
-                    \makebox[7em][s]{论文编号}      &  \uline{\makebox[7cm][c]{}}
                 \end{tabular}
             \end{center}
         }
