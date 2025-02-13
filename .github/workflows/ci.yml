@@ -1,0 +1,35 @@
+name: Build LaTeX Document
+
+on:
+  push:
+    branches:
+      - main  # 根据需要设置分支
+  pull_request:
+    branches:
+      - main  # 根据需要设置分支
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-full
+
+      - name: Compile LaTeX document
+        run: |
+          pdflatex your_document.tex
+          bibtex your_document
+          pdflatex your_document.tex
+          pdflatex your_document.tex
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: your_document
+          path: your_document.pdf
